@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un matériel{% endblock %}
+
+{% block body %}
+    <h1>Ajouter un matériel</h1>
+    <p>Renseignez les informations du nouveau matériel.</p>
+
+    {{ form_start(form) }}
+        {{ form_errors(form) }}
+
+        {{ form_row(form.name) }}
+        {{ form_row(form.category) }}
+        {{ form_row(form.purchasePrice) }}
+
+        <button type="submit">Enregistrer le matériel</button>
+    {{ form_end(form) }}
+{% endblock %}

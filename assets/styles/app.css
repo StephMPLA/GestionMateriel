@@ -1,57 +1,308 @@
+
+/* =====================================
+   VARIABLES ET STYLE GLOBAL
+===================================== */
+
+:root {
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --background: #f3f6fb;
+    --surface: #ffffff;
+    --text: #172033;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --radius: 10px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background-color: rgb(58, 58, 58);
+    margin: 0;
+    padding: 0;
+    background: var(--background);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
 }
 
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #0f172a;
+}
 
-/* TABLE */
+h2 {
+    color: #1e293b;
+}
+
+p {
+    color: var(--muted);
+}
+
+/* =====================================
+   NAVIGATION
+===================================== */
+
+header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    color: var(--primary-hover);
+}
+
+/* =====================================
+   CONTENU
+===================================== */
+
+main {
+    max-width: 1150px;
+    margin: 40px auto;
+    padding: 30px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(15, 23, 42, 0.04);
+}
+
+/* =====================================
+   TABLEAUX
+===================================== */
+
 table {
-  border-collapse: collapse;
-  border: 2px solid rgb(140 140 140);
-  font-family: sans-serif;
-  font-size: 0.8rem;
-  letter-spacing: 1px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    font-size: 14px;
 }
 
-caption {
-  caption-side: bottom;
-  padding: 10px;
-  font-weight: bold;
+thead {
+    background: #f1f5f9;
 }
 
-thead,
-tfoot {
-  background-color: rgb(110, 184, 215);
+th {
+    color: #475569;
+    text-align: left;
+    font-weight: 600;
 }
 
 th,
 td {
-  border: 1px solid rgb(169, 169, 169);
-  padding: 8px 10px;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
 }
 
-td:last-of-type {
-  text-align: center;
+tbody tr:hover {
+    background: #f8fafc;
 }
 
-tbody {
-  background-color: rgb(237 238 242);
+tbody tr:last-child td {
+    border-bottom: none;
 }
 
-tfoot th {
-  text-align: right;
+td:last-child {
+    font-weight: 600;
 }
 
-tfoot td {
-  font-weight: bold;
+caption {
+    caption-side: bottom;
+    padding: 12px;
+    color: var(--muted);
 }
-.status-green{
-background-color: green;
+
+/* =====================================
+   STATUTS
+===================================== */
+
+.status-green {
+    background: #dcfce7;
+    color: #166534;
+    font-weight: 600;
 }
-.status-blue
-{
-background-color: blue;
+
+.status-blue {
+    background: #dbeafe;
+    color: #1d4ed8;
+    font-weight: 600;
 }
-.status-orange
-{
-background-color: chocolate;
+
+.status-orange {
+    background: #ffedd5;
+    color: #9a3412;
+    font-weight: 600;
+}
+
+.status-gray {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+/* =====================================
+   FORMULAIRES SYMFONY
+===================================== */
+
+form {
+    max-width: 650px;
+    margin-top: 25px;
+}
+
+form > div {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    color: #334155;
+    font-weight: 600;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 11px 14px;
+    font: inherit;
+    background: #ffffff;
+    color: var(--text);
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* =====================================
+   BOUTONS
+===================================== */
+
+button,
+input[type="submit"] {
+    width: auto;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 11px 22px;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background: var(--primary-hover);
+}
+
+/* =====================================
+   ERREURS DE FORMULAIRE
+===================================== */
+
+form ul {
+    margin: 5px 0 10px;
+    padding: 10px 15px 10px 30px;
+    background: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+    border-radius: 7px;
+    font-size: 13px;
+}
+
+form ul li {
+    margin: 3px 0;
+}
+
+/* =====================================
+   MESSAGES FLASH
+===================================== */
+
+.flash-success {
+    max-width: 1150px;
+    margin: 20px auto;
+    padding: 14px 20px;
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #86efac;
+    border-radius: 8px;
+}
+
+.flash-warning {
+    max-width: 1150px;
+    margin: 20px auto;
+    padding: 14px 20px;
+    background: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fcd34d;
+    border-radius: 8px;
+}
+
+/* =====================================
+   PIED DE PAGE
+===================================== */
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    main {
+        margin: 15px;
+        padding: 18px;
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 550px;
+    }
+
+    th,
+    td {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 23px;
+    }
 }

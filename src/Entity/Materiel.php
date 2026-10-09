@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\MaterielRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: MaterielRepository::class)]
 class Materiel
@@ -15,15 +16,26 @@ class Materiel
     private ?int $id = null;
 
     #[ORM\Column(length: 150)]
+    #[Assert\NotBlank()]
+    #[Assert\Length(
+        min: 3,
+        minMessage: 'Le nom doit contenir au moins {{ limit }} caractères.'
+    )]
     private ?string $name = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\NotBlank()]
+    #[Assert\Choice(choices: ['PC', 'Tablette', 'Téléphone'])]
     private ?string $category = null;
 
     #[ORM\Column(length: 30)]
     private ?string $status = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
+    #[Assert\NotNull()]
+    #[Assert\Positive(
+        message: 'Le prix doit être strictement supérieur à zéro.'
+    )]
     private ?string $purchasePrice = null;
 
     #[ORM\Column]
@@ -32,6 +44,7 @@ class Materiel
     public function __construct()
     {
         $this->dateCreated = new \DateTimeImmutable();
+        $this->status = 'disponible';
     }
 
     public function getId(): ?int
