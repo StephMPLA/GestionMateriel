@@ -19,7 +19,7 @@ class Materiel
     #[Assert\NotBlank()]
     #[Assert\Length(
         min: 3,
-        minMessage: 'Le nom doit contenir au moins {{ limit }} caractères.'
+        minMessage: 'Le nom doit avoir au moins{{ limit }} caractères',
     )]
     private ?string $name = null;
 

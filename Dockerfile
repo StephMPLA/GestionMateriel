@@ -14,3 +14,6 @@ RUN sed -ri 's!/var/www/html!/var/www/html/public!g' \
     /etc/apache2/sites-available/*.conf
 
 WORKDIR /var/www/html
+
+# Copier Composer depuis son image officielle
+COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer

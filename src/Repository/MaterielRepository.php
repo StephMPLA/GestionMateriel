@@ -16,6 +16,9 @@ class MaterielRepository extends ServiceEntityRepository
         parent::__construct($registry, Materiel::class);
     }
 
+    /**
+     * @return Materiel[]
+     */
     public function findAllOrderedByNameASC(): array
     {
         return $this->createQueryBuilder('m')
