@@ -35,7 +35,7 @@ final class MaterialController extends AbstractController
             $entityManagerInterface->flush();
             $this->addFlash(
                 'success',
-                'Your changes were saved!'
+                'Votre materiel est bien enregistré !'
             );
 
             return $this->redirectToRoute('app_material');
